@@ -42,7 +42,7 @@ def sensor():
         return jsonify({"error": f"Bin {bin_id} not found"}), 404
 
     # Calculate fill percentage
-    fill = ((30.0 - distance) / 30.0) * 100
+    fill = ((27.0 - distance) / 27.0) * 100
 
     # Keep value between 0 and 100
     fill = max(0, min(100, fill))
