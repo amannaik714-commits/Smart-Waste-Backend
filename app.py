@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 
 import firebase_connection
 from firebase_admin import db
+import firebase_connection
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 
@@ -60,7 +62,7 @@ def sensor():
     # Update Firebase
     bin_ref.update({
         "fillLevel": fill,
-        "lastUpdated": "just now"
+         "lastUpdated": datetime.now(timezone.utc).isoformat()
     })
 
     return jsonify({
